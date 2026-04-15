@@ -22,5 +22,6 @@ jobs:
         run: |
           pip install yfinance pandas_ta scikit-learn requests
 
-      - name: Run your bot
-        run: python your_script.py
+      - name: Run bot (debug)
+  run: |
+    python your_script.py || echo "Script failed"

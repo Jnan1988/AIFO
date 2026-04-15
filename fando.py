@@ -9,7 +9,7 @@ Original file is located at
 
 !pip install pandas-ta yfinance scikit-learn requests
 import yfinance as yf
-import pandas_ta as ta
+import pandas-ta as ta
 import requests
 from sklearn.ensemble import RandomForestClassifier
 

@@ -14,8 +14,11 @@ import requests
 from sklearn.ensemble import RandomForestClassifier
 
 # --- CONFIGURATION ---
-TOKEN = "8705574670:AAEQDre27EDsV_4lSW2Z4XBZeBKdfA2Cf34"
-CHAT_ID = "6643306745"
+import os
+
+TOKEN = os.getenv("TOKEN")
+CHAT_ID = os.getenv("CHAT_ID")
+
 SYMBOL = "^NSEI"  # Nifty 50 Index
 
 def send_signal(message):

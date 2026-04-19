@@ -1,4 +1,4 @@
-name: Trading Bot Automation
+name:Trading Bot Automation
 
 on:
   schedule:

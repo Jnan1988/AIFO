@@ -1,4 +1,4 @@
-name:Trading Bot Automation
+name: Trading Bot Automation
 
 on:
   schedule:
@@ -20,8 +20,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install yfinance scikit-learn requests
-          pip install git+https://github.com/twopirllc/pandas-ta.git
+          pip install yfinance pandas requests
 
       - name: Run bot
-        run: python your_script.py
+        run: python bot.py

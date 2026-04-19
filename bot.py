@@ -1,3 +1,4 @@
+send_telegram("🚀 Bot started running")
 import requests
 import yfinance as yf
 import pandas as pd

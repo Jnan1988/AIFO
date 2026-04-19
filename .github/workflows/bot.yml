@@ -1,26 +1,31 @@
 name: Trading Bot Automation
 
 on:
+  workflow_dispatch: # Allows manual run from the "Actions" tab
   schedule:
-    - cron: "*/15 * * * *"
-  workflow_dispatch:
+    - cron: '*/30 * * * *' # Automatically runs every 30 minutes
 
 jobs:
   run-bot:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4 # Latest version to avoid Node warnings
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - name: Set up Python
+        uses: actions/setup-python@v5 # Latest version
         with:
-          python-version: "3.11"
+          python-version: '3.10'
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: |
-          pip install yfinance pandas requests
+          python -m pip install --upgrade pip
+          pip install yfinance pandas requests pandas-ta
 
-      - name: Run bot
+      - name: Run Trading Bot
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+          # Forces the runner to use Node 24 for all steps to clear deprecation warnings
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
         run: python bot.py

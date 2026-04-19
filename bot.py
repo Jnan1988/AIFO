@@ -1,3 +1,22 @@
+def main():
+    send_telegram("🚀 Bot started running")   # ✅ PLACE HERE
+
+    data = get_data()
+
+    if data.empty:
+        send_telegram("❌ Data fetch failed")
+        return
+
+    signal = generate_signal(data)
+    price = data['Close'].iloc[-1]
+
+    message = f"""
+📊 NIFTY SIGNAL
+Price: {price:.2f}
+Signal: {signal}
+"""
+
+    send_telegram(message)
 import requests
 import yfinance as yf
 import pandas as pd

@@ -18,11 +18,10 @@ jobs:
         with:
           python-version: "3.11"
 
-          - name: Install dependencies
-  run: |
-    pip install yfinance scikit-learn requests
-    pip install git+https://github.com/twopirllc/pandas-ta.git
+      - name: Install dependencies
+        run: |
+          pip install yfinance scikit-learn requests
+          pip install git+https://github.com/twopirllc/pandas-ta.git
 
-  
       - name: Run bot
         run: python your_script.py
